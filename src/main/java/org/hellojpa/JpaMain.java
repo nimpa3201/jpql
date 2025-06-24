@@ -6,6 +6,7 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import org.hellojpa.jpql.Address;
 import org.hellojpa.jpql.Member;
+import org.hellojpa.jpql.MemberDTO;
 
 import java.util.List;
 
@@ -26,21 +27,34 @@ public class JpaMain {
 
             em.flush();
             em.clear();
+            
 
-            // 엔티티 포로젝션
-            List<Member> result = em.createQuery("select m from Member m", Member.class)
-                .getResultList(); // 영속성 컨텍스트 범위 안에 있음
+            /* 프로젝션 - 여려 값 조회 1
+            List resultList = em.createQuery("select distinct m.username,m.age from Member m")
+                .getResultList();
 
-            Member findMember = result.get(0);
-            findMember.setAge(20);
+            Object o = resultList.get(0);
+            Object[] result = (Object[]) o;
+            System.out.println("username = " + result[0]);
+            System.out.println("age = " + result[1]); */
 
-            // 임베디드 타입 프로젝션
-            em.createQuery("select o.address from Order o", Address.class)
-                    .getResultList();
+            /* 프로젝션 - 여려 값 조회 2
+            List<Object[]> resultList = em.createQuery("select distinct m.username,m.age from Member m")
+                .getResultList();
 
-            // 스칼라 타입 프로젝션
-            em.createQuery("select distinct m.username,m.age from Member m")
-                    .getResultList();
+            Object[] result = resultList.get(0);
+            System.out.println("username = " + result[0]);
+            System.out.println("age = " + result[1]); */
+
+
+            /* 프로젝션 여러값 조회 - new 명령어로 조회 */
+
+            List<MemberDTO> result = em.createQuery("select new org.hellojpa.jpql.MemberDTO( m.username , m.age ) from Member m", MemberDTO.class)
+                .getResultList();
+
+            MemberDTO memberDTO = result.get(0);
+            System.out.println("memberDTO = " + memberDTO.getUsername());
+            System.out.println("memberDTO = " + memberDTO.getAge());
 
 
             tx.commit();
