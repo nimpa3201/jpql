@@ -19,33 +19,28 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        try{
+        try {
 
-                Member member = new Member();
-                member.setUsername("memberA") ;
-                member.setAge(10);
-                em.persist(member);
+            Member member = new Member();
+            member.setUsername(null);
+            member.setAge(10);
+            em.persist(member);
 
 
             em.flush();
             em.clear();
 
-            String query = " select " +
-                                    "case when m.age <=10 then '학생요금'"+
-                                    "     when m.age >= 60 then '경로요금'" +
-                                    "     else '일반요금'"+
-                                    " end "+
-                            "from Member m ";
+            String query = "select coalesce(m.username, '이름 없는 회원') from Member m "; // 사용자 이름 없으면 '이름없는 회원' 반환 현재 null 로 설정함
 
-        List<String> resultList = em.createQuery(query, String.class).getResultList();
+            List<String> resultList = em.createQuery(query, String.class).getResultList();
 
-        for (String s : resultList) {
-            System.out.println("s = " + s);
-            
-        }
+            for (String s : resultList) {
+                System.out.println("s = " + s);
+
+            }
 
             tx.commit();
-        } catch (Exception e){
+        } catch (Exception e) {
             tx.rollback();
             e.printStackTrace();
         } finally {
