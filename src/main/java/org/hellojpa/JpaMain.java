@@ -21,26 +21,28 @@ public class JpaMain {
 
         try{
 
-            for(int i = 0 ; i <100; i++) {
                 Member member = new Member();
-                member.setUsername("member" + i);
-                member.setAge(i);
+                member.setUsername("memberA") ;
+                member.setAge(10);
                 em.persist(member);
-            }
+
 
             em.flush();
             em.clear();
 
-            List<Member> result = em.createQuery("select m from Member m order by m.age desc", Member.class)
-                .setFirstResult(0)
-                .setMaxResults(10)
-                .getResultList();
+            String query = " select " +
+                                    "case when m.age <=10 then '학생요금'"+
+                                    "     when m.age >= 60 then '경로요금'" +
+                                    "     else '일반요금'"+
+                                    " end "+
+                            "from Member m ";
 
-            System.out.println("reseult.size =" + result.size());
-            for (Member member1 : result) {
-                System.out.println("member1 = " + member1);
-            }
+        List<String> resultList = em.createQuery(query, String.class).getResultList();
 
+        for (String s : resultList) {
+            System.out.println("s = " + s);
+            
+        }
 
             tx.commit();
         } catch (Exception e){
