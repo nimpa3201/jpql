@@ -62,6 +62,7 @@ public class JpaMain {
             } */
 
 
+            /*
 
             String query = "select m from Member m join fetch m.team";
 
@@ -70,9 +71,26 @@ public class JpaMain {
 
             for (Member member : resultList) {
                 System.out.println("member = " + member.getUsername() + " , " + member.getTeam().getName());
+                //N + 1 문제 발생 해결
+
+            } */
+
+            //컬렉션 fetch join
+
+            String query = "select distinct t from Team t join fetch t.members";
+
+            List<Team> resultList = em.createQuery(query, Team.class)
+                .getResultList();
+
+            for (Team team : resultList) {
+                System.out.println(" team = " + team.getName() + " | " + team.getMembers().size());
+
+                for (Member member : team.getMembers()){
+                    System.out.println(" -> member = " + member);
+
+                }
 
             }
-
 
             tx.commit();
         } catch (Exception e) {
