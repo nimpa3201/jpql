@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d96ba25b-465c-4893-a298-5ec2525ad804" name="변경" comment="feat: CASE 식을 활용한 JPQL 조건 분기 실습 추가">
+    <list default="true" id="d96ba25b-465c-4893-a298-5ec2525ad804" name="변경" comment="feat: NULLIF 함수를 사용한 JPQL 조건부 null 반환 실습 추가">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3604b2f8-760e-442d-a673-f17d8ede3f5e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3604b2f8-760e-442d-a673-f17d8ede3f5e.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3604b2f8-760e-442d-a673-f17d8ede3f5e/storage_v2/_src_/database/TEST.kjwnAA/schema/PUBLIC.aaZQjQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3604b2f8-760e-442d-a673-f17d8ede3f5e/storage_v2/_src_/database/TEST.kjwnAA/schema/PUBLIC.aaZQjQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/hellojpa/JpaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hellojpa/JpaMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hellojpa/jpql/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hellojpa/jpql/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +76,8 @@
       <workItem from="1750746418228" duration="3776000" />
       <workItem from="1751013211549" duration="672000" />
       <workItem from="1751024881249" duration="1421000" />
-      <workItem from="1751973546821" duration="1820000" />
+      <workItem from="1751973546821" duration="3012000" />
+      <workItem from="1752058307050" duration="2235000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 프로젝션">
       <option name="closed" value="true" />
@@ -105,7 +111,23 @@
       <option name="project" value="LOCAL" />
       <updated>1751974664648</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat: COALESCE 함수를 사용한 JPQL null 값 기본 처리 실습 추가">
+      <option name="closed" value="true" />
+      <created>1751975532007</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1751975532007</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat: NULLIF 함수를 사용한 JPQL 조건부 null 반환 실습 추가">
+      <option name="closed" value="true" />
+      <created>1751975766627</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1751975766627</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,6 +149,8 @@
     <MESSAGE value="feat: 프로젝션 여러값 조회" />
     <MESSAGE value="feat: 페이징" />
     <MESSAGE value="feat: CASE 식을 활용한 JPQL 조건 분기 실습 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: CASE 식을 활용한 JPQL 조건 분기 실습 추가" />
+    <MESSAGE value="feat: COALESCE 함수를 사용한 JPQL null 값 기본 처리 실습 추가" />
+    <MESSAGE value="feat: NULLIF 함수를 사용한 JPQL 조건부 null 반환 실습 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: NULLIF 함수를 사용한 JPQL 조건부 null 반환 실습 추가" />
   </component>
 </project>
