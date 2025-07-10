@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d96ba25b-465c-4893-a298-5ec2525ad804" name="변경" comment="chore: Hibernate SQL 및 바인딩 파라미터 로깅 설정 추가">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="d96ba25b-465c-4893-a298-5ec2525ad804" name="변경" comment="feat: JPQL 엔티티 비교 vs ID 비교 예제 및 주석 설명 추가">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/hellojpa/JpaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hellojpa/JpaMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +74,7 @@
       <workItem from="1751973546821" duration="3012000" />
       <workItem from="1752058307050" duration="3895000" />
       <workItem from="1752122624427" duration="4088000" />
-      <workItem from="1752135756207" duration="1306000" />
+      <workItem from="1752135756207" duration="1620000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 프로젝션">
       <option name="closed" value="true" />
@@ -149,7 +148,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752127124285</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="feat: JPQL 엔티티 비교 vs ID 비교 예제 및 주석 설명 추가">
+      <option name="closed" value="true" />
+      <created>1752137648091</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1752137648091</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,6 +183,7 @@
     <MESSAGE value="feat: fetch join 적용 및 N+1 문제 발생 코드 주석 처리&#10;&#10;- Team, Member 엔티티 연관관계 설정 후 persist&#10;- 기존 N+1 문제를 발생시키는 select 코드 주석 처리&#10;- 성능 최적화를 위해 join fetch로 team 정보 즉시 로딩" />
     <MESSAGE value="feat: 컬렉션 fetch join을 사용하여 Team-Member 관계 최적화&#10;&#10;- Team 엔티티의 members 컬렉션을 fetch join으로 조회&#10;- 중복 Team 제거를 위해 JPQL에 distinct 추가&#10;- 기존 N+1 발생 및 단건 fetch join 코드 주석 처리" />
     <MESSAGE value="chore: Hibernate SQL 및 바인딩 파라미터 로깅 설정 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: Hibernate SQL 및 바인딩 파라미터 로깅 설정 추가" />
+    <MESSAGE value="feat: JPQL 엔티티 비교 vs ID 비교 예제 및 주석 설명 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: JPQL 엔티티 비교 vs ID 비교 예제 및 주석 설명 추가" />
   </component>
 </project>
