@@ -48,49 +48,36 @@ public class JpaMain {
 
             em.flush();
             em.clear();
-            /*
-            String query = "select m from Member m ";
 
-            List<Member> resultList = em.createQuery(query, Member.class)
+            // ✅ JPQL에서 엔티티 객체 자체를 비교하는 방식
+            //    내부적으로는 해당 엔티티의 기본 키(PK)를 기준으로 SQL로 변환됨
+
+            /*
+            String query = "select  m from Member m where m =:member";
+
+            List<Member> resultList = em.createQuery(query,Member.class)
+                .setParameter("member",member1)
+                .getResultList();
+
+
+             */
+
+            // ✅ 위 JPQL은 아래 JPQL과 동일한 SQL로 변환됨
+            //    즉, 엔티티 객체 전체 비교는 결국 해당 객체의 ID(PK)로 비교하는 것과 같음
+
+            String query = "select  m from Member m where m.id =:memberId";
+
+            List<Member> resultList = em.createQuery(query,Member.class)
+                .setParameter("memberId",member1.getId())
                 .getResultList();
 
             for (Member member : resultList) {
-                System.out.println("member = " + member.getUsername() + " , " + member.getTeam().getName());
-
-                // N + 1 문제 발생 예제
-                
-            } */
-
-
-            /*
-
-            String query = "select m from Member m join fetch m.team";
-
-            List<Member> resultList = em.createQuery(query, Member.class)
-                .getResultList();
-
-            for (Member member : resultList) {
-                System.out.println("member = " + member.getUsername() + " , " + member.getTeam().getName());
-                //N + 1 문제 발생 해결
-
-            } */
-
-            //컬렉션 fetch join
-
-            String query = "select distinct t from Team t join fetch t.members";
-
-            List<Team> resultList = em.createQuery(query, Team.class)
-                .getResultList();
-
-            for (Team team : resultList) {
-                System.out.println(" team = " + team.getName() + " | " + team.getMembers().size());
-
-                for (Member member : team.getMembers()){
-                    System.out.println(" -> member = " + member);
-
-                }
+                System.out.println("member = " + member);
 
             }
+
+            // 🔄 결국 두 쿼리는 동일한 SQL로 변환됨:
+            // select * from member where id = ?
 
             tx.commit();
         } catch (Exception e) {
