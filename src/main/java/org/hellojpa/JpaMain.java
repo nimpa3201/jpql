@@ -4,12 +4,8 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
-import org.hellojpa.jpql.Address;
 import org.hellojpa.jpql.Member;
-import org.hellojpa.jpql.MemberDTO;
 import org.hellojpa.jpql.Team;
-
-import java.util.List;
 
 public class JpaMain {
     public static void main(String[] args) {
@@ -46,18 +42,18 @@ public class JpaMain {
             em.persist(member3);
 
 
-            em.flush();
-            em.clear();
 
-            //Named 쿼리 사용
-            List<Member> resultList = em.createNamedQuery("Member.findByUsername", Member.class)
-                .setParameter("username", "회원1")
-                .getResultList();
+            // 벌크 연산
+            int resultCount = em.createQuery("update Member m set m.age = 20")
+                .executeUpdate();
 
-            for (Member member : resultList) {
-                System.out.println("member = " + member);
+            em.clear(); // 영속성 컨텍스트 초기화
 
-            }
+            System.out.println("resultCount = " + resultCount);
+
+            Member findMember = em.find(Member.class, member1.getId());
+            System.out.println("findMember = " + findMember.getAge());
+
 
             tx.commit();
         } catch (Exception e) {
